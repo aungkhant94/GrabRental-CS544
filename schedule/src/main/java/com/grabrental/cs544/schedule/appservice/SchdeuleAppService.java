@@ -1,4 +1,4 @@
-package com.grabrental.cs544.schdule.appservice;
+package com.grabrental.cs544.schedule.appservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -1,2 +1,4 @@
-package com.grabrental.cs544.vehicle.controller;public class VehicleController {
+package com.grabrental.cs544.vehicle.controller;
+
+public class VehicleController {
 }
