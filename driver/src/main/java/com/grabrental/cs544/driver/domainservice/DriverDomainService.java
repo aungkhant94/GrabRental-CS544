@@ -2,11 +2,14 @@ package com.grabrental.cs544.driver.domainservice;
 
 import com.grabRental.cs544.dto.DriverDTO;
 import com.grabRental.cs544.model.Driver;
+import com.grabrental.cs544.driver.exception.DriverApiException;
+import com.grabrental.cs544.driver.exception.DriverException;
 import com.grabrental.cs544.driver.repository.DriverRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DriverDomainService extends Exception {
@@ -19,7 +22,11 @@ public class DriverDomainService extends Exception {
     }
 
     public Driver get(long id) {
-        return driverRepository.findById(id).get();
+        Optional<Driver> driver = driverRepository.findById(id);
+        if(driver.isPresent()){
+            return driver.get();
+        }
+        throw new DriverApiException("Not Found");
     }
 
     public List<Driver> getAll() {
@@ -30,7 +37,7 @@ public class DriverDomainService extends Exception {
         if(driverRepository.findById(driver.getId()).isPresent()){
             return driverRepository.save(driver);
         }
-       return null;
+       throw new DriverApiException("Not Found");
     }
 
     public Long delete(long id) {
@@ -39,6 +46,6 @@ public class DriverDomainService extends Exception {
             driverRepository.deleteById(id);
             return id;
         }
-        return -1L;
+        throw new DriverApiException("Not Found");
     }
 }
