@@ -33,18 +33,11 @@ public class VehicleDomainService {
     }
 
     public Vehicle updateVehicle(Long id, Vehicle vehicle){
-        Optional<Vehicle> vehicle1 = vehicleRepository.findById(id);
-        if(vehicle1.isPresent()){
-            Vehicle vehicleToUpdate = vehicle1.get();
-            vehicleToUpdate.setNumberPlate(vehicle.getNumberPlate());
-            vehicleToUpdate.setPickUpSpace(vehicle.getPickUpSpace());
-            vehicleToUpdate.setNumberOfSeats(vehicle.getNumberOfSeats());
-            vehicleToUpdate.setModelYear(vehicle.getModelYear());
-            vehicleToUpdate.setModel(vehicle.getModel());
-            vehicleToUpdate.setBrand(vehicle.getBrand());
-            vehicleToUpdate.setInsuranceId(vehicle.getInsuranceId());
-            vehicleRepository.save(vehicleToUpdate);
-            return vehicleToUpdate;
+        Optional<Vehicle> vehicleToUpdate = vehicleRepository.findById(id);
+        if(vehicleToUpdate.isPresent()){
+            vehicle.setId(id);
+            vehicleRepository.save(vehicle);
+            return vehicle;
         }
         return null;
     }

@@ -3,6 +3,7 @@ package com.grabRental.cs544.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.boot.autoconfigure.data.cassandra.CassandraDataAutoConfiguration;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

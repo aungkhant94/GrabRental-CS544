@@ -1,2 +1,5 @@
 /.metadata/
-driver/src/main/resources/application.yml
+*.class
+*.jar
+/target/*
+*/target/*
