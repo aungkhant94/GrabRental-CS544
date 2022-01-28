@@ -1,6 +1,8 @@
 package com.grabRental.cs544.model;
 
 import javax.persistence.Entity;
+
+import com.grabRental.cs544.enumeration.VehicleType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +20,10 @@ public class Vehicle {
     private Long id;
 
     private String numberPlate;
+
+    @Enumerated(EnumType.STRING)
+    private VehicleType type;
+
     private String model;
     private String brand;
     private int modelYear;
@@ -28,9 +34,10 @@ public class Vehicle {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt = new Date();
 
-    public Vehicle(String numberPlate, String model, String brand, int modelYear, int numberOfSeats, String insuranceId, Boolean pickUpSpace, Date createdAt)
+    public Vehicle(String numberPlate, VehicleType type, String model, String brand, int modelYear, int numberOfSeats, String insuranceId, Boolean pickUpSpace, Date createdAt)
     {
         this.numberPlate = numberPlate;
+        this.type = type;
         this.model = model;
         this.brand = brand;
         this.modelYear = modelYear;

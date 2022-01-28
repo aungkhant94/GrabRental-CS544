@@ -11,6 +11,7 @@ public class VehicleConverter {
     public Vehicle toDAO(VehicleDTO vehicleDTO) {
         Vehicle vehicle = new Vehicle();
         vehicle.setBrand(vehicleDTO.getBrand());
+        vehicle.setType(vehicleDTO.getType());
         vehicle.setModel(vehicleDTO.getModel());
         vehicle.setInsuranceId(vehicleDTO.getInsuranceId());
         vehicle.setModelYear(vehicleDTO.getModelYear());
@@ -25,6 +26,7 @@ public class VehicleConverter {
         VehicleDTO vehicleDTO = new VehicleDTO();
         vehicleDTO.setBrand(vehicle.getBrand());
         vehicleDTO.setModel(vehicle.getModel());
+        vehicleDTO.setType(vehicle.getType());
         vehicleDTO.setInsuranceId(vehicle.getInsuranceId());
         vehicleDTO.setModelYear(vehicle.getModelYear());
         vehicleDTO.setNumberPlate(vehicle.getNumberPlate());
