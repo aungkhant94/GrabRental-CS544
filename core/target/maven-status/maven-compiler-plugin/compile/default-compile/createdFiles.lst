@@ -1,14 +1,5 @@
-<<<<<<< HEAD
-com\grabRental\cs544\remote\ScheduleRemoteService.class
-com\grabRental\cs544\model\Driver.class
-com\grabRental\cs544\model\Schedule.class
-com\grabRental\cs544\model\Vehicle.class
-com\grabRental\cs544\dto\DriverDTO.class
-com\grabRental\cs544\dto\ScheduleDTO.class
-=======
 com/grabRental/cs544/model/Driver.class
+com/grabRental/cs544/remote/ScheduleRemoteService.class
 com/grabRental/cs544/dto/ScheduleDTO.class
 com/grabRental/cs544/dto/VehicleDTO.class
 com/grabRental/cs544/model/Schedule.class
-com/grabRental/cs544/remote/ScheduleRemoteService.class
->>>>>>> 3a5f0f4bf01baaa267b44c31759473ee051640a7
