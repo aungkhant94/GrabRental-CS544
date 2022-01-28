@@ -3,7 +3,10 @@ package com.grabrental.cs544.schedule.appservice;
 import com.grabRental.cs544.dto.ScheduleDTO;
 import com.grabRental.cs544.model.Schedule;
 
+import java.util.List;
+
 public interface IScheduleAppService {
 	
-	public ScheduleDTO createScheduleDTO(ScheduleDTO schedule);
+	 ScheduleDTO createScheduleDTO(ScheduleDTO schedule);
+	 List<ScheduleDTO> getSchedules();
 }

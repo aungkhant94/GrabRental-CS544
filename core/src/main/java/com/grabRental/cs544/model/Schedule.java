@@ -18,6 +18,7 @@ import org.hibernate.annotations.Cascade;
 public class Schedule {
 
 	@Id
+	@GeneratedValue
 	private Long id;
 
 	@Temporal(TemporalType.TIMESTAMP)

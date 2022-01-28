@@ -4,10 +4,12 @@ import com.grabRental.cs544.dto.ScheduleDTO;
 import com.grabRental.cs544.dto.ServiceVehicleDTO;
 import com.grabRental.cs544.model.Schedule;
 import com.grabRental.cs544.model.ServiceVehicle;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ScheduleConverter {
 
-	public Schedule toDAO(ScheduleDTO scheduleDTO) {
+	public static Schedule toDAO(ScheduleDTO scheduleDTO) {
 		Schedule schedule = new Schedule();
 		schedule.setId(scheduleDTO.getId());
 		schedule.setDate(scheduleDTO.getDate());
@@ -17,7 +19,8 @@ public class ScheduleConverter {
 		schedule.setNoOfPassenger(scheduleDTO.getNoOfPassenger());
 		if(scheduleDTO.getServiceVehicleList()!=null && scheduleDTO.getServiceVehicleList().size()>0){
 			for(ServiceVehicleDTO serviceVehicleDTO: scheduleDTO.getServiceVehicleList()){
-				//converter
+			 ServiceVehicle serviceVehicle = ServiceVehicleConverter.toDao(serviceVehicleDTO);
+			 schedule.addServiceVehicleList(serviceVehicle.getVehicle(),serviceVehicle.getDriver());
 			}
 
 		}
@@ -25,7 +28,7 @@ public class ScheduleConverter {
 	}
 	
 	
-	public ScheduleDTO toDTO(Schedule schedule) {
+	public static ScheduleDTO toDTO(Schedule schedule) {
 
 
 		ScheduleDTO scheduleDTO = new ScheduleDTO();
@@ -37,7 +40,8 @@ public class ScheduleConverter {
 		scheduleDTO.setNoOfPassenger(schedule.getNoOfPassenger());
 		if(schedule.getServiceVehicleList()!=null && schedule.getServiceVehicleList().size()>0){
 			for(ServiceVehicle serviceVehicle: schedule.getServiceVehicleList()){
-				//converter
+				ServiceVehicleDTO serviceVehicleDTO = ServiceVehicleConverter.toDTO(serviceVehicle);
+				schedule.addServiceVehicleList(serviceVehicle.getVehicle(),serviceVehicle.getDriver());
 			}
 
 		}
