@@ -1,12 +1,12 @@
 package com.grabRental.cs544.model;
 
-import com.grabRental.cs544.dto.DriverDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -24,9 +24,13 @@ public class ServiceVehicle {
     private Vehicle vehicle;
 
     @ManyToOne
+    @JoinColumn
     private Schedule schedule;
 
+
     public ServiceVehicle(Schedule schedule){
-        this.schedule = schedule;
+        this.setSchedule(schedule);
     }
+
+
 }
