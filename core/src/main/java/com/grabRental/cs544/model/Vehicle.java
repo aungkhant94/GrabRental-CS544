@@ -25,7 +25,7 @@ public class Vehicle {
     private Boolean pickUpSpace;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
+    private Date createdAt = new Date();
 
     public Vehicle(String numberPlate, String model, String brand, int modelYear, int numberOfSeats, String insuranceId, Boolean pickUpSpace, Date createdAt)
     {
