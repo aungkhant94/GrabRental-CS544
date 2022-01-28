@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-C:\CS544\EA Project\project\GrabRental-CS544\core\src\main\java\com\grabRental\cs544\dto\DriverDTO.java
-=======
-<<<<<<< HEAD
+/Users/rabinsenchuro/Documents/MIUCourse/EA/Project/GrabRental-CS544/core/src/main/java/com/grabRental/cs544/model/Schedule.java
+/Users/rabinsenchuro/Documents/MIUCourse/EA/Project/GrabRental-CS544/core/src/main/java/com/grabRental/cs544/dto/DriverDTO.java
+/Users/rabinsenchuro/Documents/MIUCourse/EA/Project/GrabRental-CS544/core/src/main/java/com/grabRental/cs544/remote/ScheduleRemoteService.java
+/Users/rabinsenchuro/Documents/MIUCourse/EA/Project/GrabRental-CS544/core/src/main/java/com/grabRental/cs544/dto/VehicleDTO.java
+/Users/rabinsenchuro/Documents/MIUCourse/EA/Project/GrabRental-CS544/core/src/main/java/com/grabRental/cs544/enumeration/Location.java
+/Users/rabinsenchuro/Documents/MIUCourse/EA/Project/GrabRental-CS544/core/src/main/java/com/grabRental/cs544/model/Driver.java
+/Users/rabinsenchuro/Documents/MIUCourse/EA/Project/GrabRental-CS544/core/src/main/java/com/grabRental/cs544/dto/ScheduleDTO.java
 /Users/rabinsenchuro/Documents/MIUCourse/EA/Project/GrabRental-CS544/core/src/main/java/com/grabRental/cs544/model/Vehicle.java
-=======
->>>>>>> 3a5f0f4bf01baaa267b44c31759473ee051640a7
-C:\CS544\EA Project\project\GrabRental-CS544\core\src\main\java\com\grabRental\cs544\model\Vehicle.java
-C:\CS544\EA Project\project\GrabRental-CS544\core\src\main\java\com\grabRental\cs544\remote\ScheduleRemoteService.java
-C:\CS544\EA Project\project\GrabRental-CS544\core\src\main\java\com\grabRental\cs544\dto\ScheduleDTO.java
-C:\CS544\EA Project\project\GrabRental-CS544\core\src\main\java\com\grabRental\cs544\model\Schedule.java
-C:\CS544\EA Project\project\GrabRental-CS544\core\src\main\java\com\grabRental\cs544\model\Driver.java
->>>>>>> main
