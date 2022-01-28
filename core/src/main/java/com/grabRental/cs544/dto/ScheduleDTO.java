@@ -19,7 +19,6 @@ public class ScheduleDTO {
 
 	private Date date;
 
-
 	private Integer durationInMinute;
 
 	private Integer noOfPassenger;
@@ -27,8 +26,6 @@ public class ScheduleDTO {
 	private Location source;
 
 	private Location destination;
-
-
 
 	private List<ServiceVehicleDTO> serviceVehicleList;
 
