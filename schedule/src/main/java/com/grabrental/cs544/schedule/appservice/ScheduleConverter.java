@@ -7,18 +7,12 @@ public class ScheduleConverter {
 
 	public Schedule toDAO(ScheduleDTO scheduleDTO) {
 		Schedule schedule = new Schedule();
-		
-		
 		return schedule;
 	}
 	
 	
 	public ScheduleDTO toDTO(Schedule schedule) {
 		ScheduleDTO scheduleDTO = new ScheduleDTO();
-		
-		
-		
-		
 		return scheduleDTO;
 	}
 }

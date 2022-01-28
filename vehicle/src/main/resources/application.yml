@@ -1,6 +1,8 @@
 server:
   port: 8081
 spring:
+  application:
+    name: vehicle
   datasource:
     url: jdbc:mysql://localhost/cs544?useSSL=false&serverTimezone=America/Chicago
     username: root
@@ -8,6 +10,8 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+    password: '@Aselastar21'
   jpa:
     properties:
       hibernate:

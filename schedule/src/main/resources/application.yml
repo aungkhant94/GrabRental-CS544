@@ -1,8 +1,10 @@
 
 server:
-  port: 8081
+  port: 8082
 
 spring:
+  application:
+    name: schedule
   datasource:
     username: root
     url: jdbc:mysql://localhost/cs544?useSSL=false&serverTimezone=America/Chicago
