@@ -1,5 +1,10 @@
+com/grabRental/cs544/converter/VehicleConverter.class
+com/grabRental/cs544/model/Vehicle.class
 com/grabRental/cs544/model/Driver.class
+com/grabRental/cs544/enumeration/VehicleType.class
 com/grabRental/cs544/remote/ScheduleRemoteService.class
 com/grabRental/cs544/dto/ScheduleDTO.class
 com/grabRental/cs544/dto/VehicleDTO.class
 com/grabRental/cs544/model/Schedule.class
+com/grabRental/cs544/dto/DriverDTO.class
+com/grabRental/cs544/enumeration/Location.class

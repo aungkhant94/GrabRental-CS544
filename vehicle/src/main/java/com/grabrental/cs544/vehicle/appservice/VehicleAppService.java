@@ -1,5 +1,6 @@
 package com.grabrental.cs544.vehicle.appservice;
 
+import com.grabRental.cs544.converter.VehicleConverter;
 import com.grabRental.cs544.dto.VehicleDTO;
 import com.grabRental.cs544.model.Vehicle;
 import com.grabrental.cs544.vehicle.domainservice.VehicleDomainService;
@@ -17,9 +18,6 @@ public class VehicleAppService implements IVehicleAppService{
     @Autowired
     private VehicleDomainService vehicleDomainService;
 
-    @Autowired
-    private VehicleConverter vehicleConverter;
-
     /**
      * Getting the all the vehicle and convert to DTO
      * @return List<Vehicle>
@@ -28,7 +26,7 @@ public class VehicleAppService implements IVehicleAppService{
     public List<VehicleDTO> getVehicles() {
         List<VehicleDTO> vehicleDTOList = vehicleDomainService.getVehicles()
                 .stream()
-                .map(vehicle -> vehicleConverter.toDTO(vehicle))
+                .map(vehicle -> VehicleConverter.toDTO(vehicle))
                 .collect(Collectors.toList());
         return vehicleDTOList;
 
@@ -41,7 +39,7 @@ public class VehicleAppService implements IVehicleAppService{
      */
     @Override
     public VehicleDTO getVehicleById(Long id) {
-        return vehicleConverter.toDTO(vehicleDomainService.getVehicleById(id));
+        return VehicleConverter.toDTO(vehicleDomainService.getVehicleById(id));
     }
 
     /**
@@ -51,9 +49,9 @@ public class VehicleAppService implements IVehicleAppService{
      */
     @Override
     public VehicleDTO createVehicleDTO(VehicleDTO vehicleDTO) {
-        Vehicle vehicleToSave = vehicleConverter.toDAO(vehicleDTO);
+        Vehicle vehicleToSave = VehicleConverter.toDAO(vehicleDTO);
         vehicleToSave =  vehicleDomainService.createVehicle(vehicleToSave);
-        return vehicleConverter.toDTO(vehicleToSave);
+        return VehicleConverter.toDTO(vehicleToSave);
     }
 
     /**
@@ -64,9 +62,9 @@ public class VehicleAppService implements IVehicleAppService{
      */
     @Override
     public VehicleDTO updateVehicle(Long id, VehicleDTO vehicleDTO) {
-        Vehicle vehicleToUpdate = vehicleConverter.toDAO(vehicleDTO);
+        Vehicle vehicleToUpdate = VehicleConverter.toDAO(vehicleDTO);
         vehicleToUpdate = vehicleDomainService.updateVehicle(id, vehicleToUpdate);
-        return vehicleConverter.toDTO(vehicleToUpdate);
+        return VehicleConverter.toDTO(vehicleToUpdate);
     }
 
     /**

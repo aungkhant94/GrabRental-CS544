@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EntityScan("com.grabRental.cs544.*")
+
 @EnableJpaRepositories
 public class VehicleApplication {
 
