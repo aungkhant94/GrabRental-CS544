@@ -24,7 +24,7 @@ public class ScheduleController {
 		return ResponseEntity.ok(scheduleAppService.getSchedules());
 	}
 
-	@PostMapping
+	@PostMapping(consumes="application/json")
 	public ScheduleDTO createVehicle(@RequestBody ScheduleDTO scheduleDTO){
 		ScheduleDTO scheduleDTOToSave = scheduleAppService.createScheduleDTO(scheduleDTO);
 		return scheduleDTOToSave;
