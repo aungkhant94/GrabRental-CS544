@@ -5,6 +5,9 @@ spring:
     url: jdbc:mysql://localhost/cs544?useSSL=false&serverTimezone=America/Chicago
     username: root
     password: root
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   jpa:
     properties:
       hibernate:
