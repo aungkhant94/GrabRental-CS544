@@ -2,6 +2,8 @@ package com.grabrental.cs544.vehicle.domainservice;
 
 import com.grabRental.cs544.model.Schedule;
 import com.grabRental.cs544.model.Vehicle;
+import com.grabrental.cs544.vehicle.exception.VechicleApiException;
+import com.grabrental.cs544.vehicle.exception.VehicleExceptionHandler;
 import com.grabrental.cs544.vehicle.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +19,10 @@ public class VehicleDomainService {
     private VehicleRepository vehicleRepository;
 
     public List<Vehicle> getVehicles(){
-        return vehicleRepository.findAll();
+       if(vehicleRepository.findAll().size() <= 0){
+           throw new VechicleApiException("No vehicle found");
+       }
+       return vehicleRepository.findAll();
     }
 
     public Vehicle getVehicleById(Long id){
@@ -25,7 +30,7 @@ public class VehicleDomainService {
         if(vehicle.isPresent()){
             return vehicle.get();
         }
-        return null;
+        throw new VechicleApiException("No vehicle found");
     }
 
     public Vehicle createVehicle(Vehicle vehicle) {
@@ -39,13 +44,16 @@ public class VehicleDomainService {
             vehicleRepository.save(vehicle);
             return vehicle;
         }
-        return null;
+        throw new VechicleApiException("No vehicle found");
     }
 
     public void deleteVehicle(Long id){
         Optional<Vehicle> vehicleToDelete = vehicleRepository.findById(id);
         if(vehicleToDelete.isPresent()){
             vehicleRepository.delete(vehicleToDelete.get());
+        }
+        else {
+            throw new VechicleApiException("No vehicle found");
         }
     }
 }

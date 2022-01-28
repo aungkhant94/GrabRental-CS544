@@ -3,9 +3,11 @@ package com.grabrental.cs544.vehicle.controller;
 import com.grabRental.cs544.dto.VehicleDTO;
 import com.grabrental.cs544.vehicle.appservice.IVehicleAppService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -42,9 +44,9 @@ public class VehicleController {
      * @return
      */
     @PostMapping
-    public VehicleDTO createVehicle(@RequestBody VehicleDTO vehicleDTO){
+    public ResponseEntity<Object> createVehicle(@Valid @RequestBody VehicleDTO vehicleDTO){
          VehicleDTO vehicleDTOToSave = vehicleAppService.createVehicleDTO(vehicleDTO);
-         return vehicleDTOToSave;
+         return new ResponseEntity<>("Vehicle saved successfully", HttpStatus.OK);
     }
 
     /**
@@ -54,10 +56,10 @@ public class VehicleController {
      * @return
      */
     @PutMapping("/{id}")
-    public VehicleDTO updateVehicle(@PathVariable Long id,
-                                    @RequestBody VehicleDTO vehicleDTO){
+    public ResponseEntity<Object> updateVehicle(@PathVariable Long id,
+                                    @Valid @RequestBody VehicleDTO vehicleDTO){
         VehicleDTO vehicleDTOToUpdate = vehicleAppService.updateVehicle(id, vehicleDTO);
-        return vehicleDTOToUpdate;
+        return new ResponseEntity<>("Vehicle updated Successfully", HttpStatus.OK);
     }
 
     /**
