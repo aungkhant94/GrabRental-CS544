@@ -10,7 +10,12 @@ public class ServiceVehicleConverter {
     public static ServiceVehicle toDao(ServiceVehicleDTO serviceVehicleDTO){
         ServiceVehicle serviceVehicle = new ServiceVehicle();
         serviceVehicle.setId(serviceVehicleDTO.getId());
-        serviceVehicle.setVehicle(VehicleConverter.toDAO(serviceVehicleDTO.getVehicle()));
+        if(serviceVehicleDTO.getVehicle()!=null) {
+            serviceVehicle.setVehicle(VehicleConverter.toDAO(serviceVehicleDTO.getVehicle()));
+        }
+        if(serviceVehicleDTO.getDriver()!=null){
+            serviceVehicle.setDriver(DriverConverter.toDAO(serviceVehicleDTO.getDriver()));
+        }
 
 
         return serviceVehicle;
@@ -19,7 +24,12 @@ public class ServiceVehicleConverter {
     public static ServiceVehicleDTO toDTO(ServiceVehicle serviceVehicle){
         ServiceVehicleDTO serviceVehicleDTO = new ServiceVehicleDTO();
         serviceVehicleDTO.setId(serviceVehicleDTO.getId());
-        serviceVehicleDTO.setVehicle(VehicleConverter.toDTO(serviceVehicle.getVehicle()));
+        if(serviceVehicle.getVehicle()!=null) {
+            serviceVehicleDTO.setVehicle(VehicleConverter.toDTO(serviceVehicle.getVehicle()));
+        }
+        if(serviceVehicle.getDriver()!=null){
+            serviceVehicleDTO.setDriver(DriverConverter.toDTO(serviceVehicle.getDriver()));
+        }
         return serviceVehicleDTO;
     }
 }

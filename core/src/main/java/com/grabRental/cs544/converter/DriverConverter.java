@@ -8,13 +8,14 @@ import org.springframework.stereotype.Component;
 public class DriverConverter {
 
     public static Driver toDAO(DriverDTO driverDTO){
-
-        return new Driver(driverDTO.getFirstName(),
+        Driver driver  = new Driver(driverDTO.getFirstName(),
                 driverDTO.getLastname(),
                 driverDTO.getAge(),
                 driverDTO.getAddress(),
                 driverDTO.getLicenseId(),
                 driverDTO.getExperience());
+        driver.setId(driverDTO.getId());
+        return driver;
     }
 
     public static DriverDTO toDTO(Driver driver){

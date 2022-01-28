@@ -1,6 +1,9 @@
 package com.grabrental.cs544.schedule.domainservice;
 
+import com.grabRental.cs544.dto.DriverDTO;
+import com.grabRental.cs544.model.ServiceVehicle;
 import com.grabRental.cs544.model.Vehicle;
+import com.grabrental.cs544.schedule.remoteservice.IDriverRemoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.grabRental.cs544.model.Schedule;
@@ -15,7 +18,21 @@ public class ScheduleDomainService {
     @Autowired
     ScheduleRepository scheduleRepository;
 
+    @Autowired
+    IDriverRemoteService driverRemoteService;
+
     public Schedule createSchedule(Schedule schedule) {
+        System.out.println("Schedule >>>>>>>>>>>>>>>>>");
+        if(schedule.getServiceVehicleList()!=null){
+            System.out.println("Service Vehicle >>>>>>>>>>>>>>>>>");
+            for (ServiceVehicle serviceVehicle: schedule.getServiceVehicleList()){
+                if(serviceVehicle.getDriver()!=null){
+                    System.out.println("before Feign >>>>>>>>>>>>>>>>>");
+                  DriverDTO driverDTO =  driverRemoteService.getDriverById(serviceVehicle.getDriver().getId());
+                    System.out.println(driverDTO.getFirstName()+">>>>>>>>>>>>>>>>>");
+                }
+            }
+        }
 
     	return scheduleRepository.save(schedule);
     }

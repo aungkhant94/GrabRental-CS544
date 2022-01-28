@@ -15,6 +15,8 @@ import javax.persistence.Enumerated;
 @AllArgsConstructor
 public class VehicleDTO {
 
+    private Long id;
+
     private String numberPlate;
 
     @Enumerated(EnumType.STRING)
