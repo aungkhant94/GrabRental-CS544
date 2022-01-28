@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 com/grabRental/cs544/dto/ScheduleDTO.class
 com/grabRental/cs544/dto/VehicleDTO.class
 com/grabRental/cs544/model/Schedule.class
 com/grabRental/cs544/remote/ScheduleRemoteService.class
+=======
+com\grabRental\cs544\remote\ScheduleRemoteService.class
+com\grabRental\cs544\model\Driver.class
+com\grabRental\cs544\model\Schedule.class
+com\grabRental\cs544\model\Vehicle.class
+com\grabRental\cs544\dto\ScheduleDTO.class
+>>>>>>> main
