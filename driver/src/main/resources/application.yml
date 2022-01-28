@@ -8,6 +8,8 @@ server:
 #      defaultZone: http://localhost:8761/eureka/
 
 spring:
+  application:
+    name: driver
   datasource:
     url: jdbc:mysql://localhost/cs544?useSSL=false&serverTimezone=America/Chicago
     username: root

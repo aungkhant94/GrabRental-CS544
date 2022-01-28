@@ -3,6 +3,7 @@ package com.grabrental.cs544.driver;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
@@ -10,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 @EntityScan("com.grabRental.cs544.*")
 @ComponentScan("com.grabrental.cs544.*")
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 public class DriverApplication {
 
 	public static void main(String[] args) {
