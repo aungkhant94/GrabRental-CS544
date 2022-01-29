@@ -76,18 +76,12 @@ public class VehicleController {
 
     /**
      * Retrieve all the vehicles available between a time frame
-     * @param searchVehicleDTO
+     * @param searchDTO
      * @return
      */
     @GetMapping("/availableVehicles")
-<<<<<<< Updated upstream
-    public List<VehicleDTO> getAvailableVehicles(@RequestBody SearchVehicleDTO searchVehicleDTO){
-
-        return vehicleAppService.getAvailableVehicles(searchVehicleDTO.getStartDate(), searchVehicleDTO.getEndDate());
-=======
     public List<VehicleDTO> getAvailableVehicles(@RequestBody SearchDTO searchDTO){
         return vehicleAppService.getAvailableVehicles(searchDTO.getStartDate(), searchDTO.getEndDate());
->>>>>>> Stashed changes
     }
 
 }
