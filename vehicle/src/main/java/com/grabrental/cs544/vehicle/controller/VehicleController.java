@@ -1,5 +1,6 @@
 package com.grabrental.cs544.vehicle.controller;
 
+import com.grabRental.cs544.dto.SearchVehicleDTO;
 import com.grabRental.cs544.dto.VehicleDTO;
 import com.grabrental.cs544.vehicle.appservice.IVehicleAppService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -69,6 +71,12 @@ public class VehicleController {
     @DeleteMapping("/{id}")
     public void deleteVehicle(@PathVariable Long id){
         vehicleAppService.deleteVehicle(id);
+    }
+
+
+    @GetMapping("/availableVehicles")
+    public List<VehicleDTO> getAvailableVehicles(@RequestBody SearchVehicleDTO searchVehicleDTO){
+        return vehicleAppService.getAvailableVehicles(searchVehicleDTO.getStartDate(), searchVehicleDTO.getEndDate());
     }
 
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -74,5 +75,13 @@ public class VehicleAppService implements IVehicleAppService{
     @Override
     public void deleteVehicle(Long id) {
         vehicleDomainService.deleteVehicle(id);
+    }
+
+    @Override
+    public List<VehicleDTO> getAvailableVehicles(Date startTime, Date endTime) {
+        return vehicleDomainService.getAvailableVehicles(startTime, endTime)
+                .stream()
+                .map(vehicle -> VehicleConverter.toDTO(vehicle))
+                .collect(Collectors.toList());
     }
 }

@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,6 +56,15 @@ public class VehicleDomainService {
         }
         else {
             throw new VechicleApiException("No vehicle found");
+        }
+    }
+
+    public List<Vehicle> getAvailableVehicles(Date startTime, Date endTime){
+        List<Vehicle> availableVehicles = vehicleRepository.getAvailableVehicles(startTime, endTime);
+        if(availableVehicles.size() <= 0){
+            throw new VechicleApiException("No available vehicles at the moment");
+        }else {
+            return availableVehicles;
         }
     }
 }
