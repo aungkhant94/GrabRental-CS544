@@ -1,6 +1,7 @@
 package com.grabrental.cs544.driver.controller;
 
 import com.grabRental.cs544.dto.DriverDTO;
+import com.grabRental.cs544.dto.SearchDTO;
 import com.grabrental.cs544.driver.appservice.IDriverAppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -39,5 +40,9 @@ public class DriverController {
         return driverAppService.delete(id);
     }
 
+    @GetMapping("/getAvailableDrivers")
+    public List<DriverDTO> getAvailableDrivers(@RequestBody SearchDTO searchDTO){
+        return driverAppService.getAvailableDrivers(searchDTO.getStartDate(), searchDTO.getEndDate());
+    }
 
 }

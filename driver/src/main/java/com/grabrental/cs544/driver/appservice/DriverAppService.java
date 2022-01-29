@@ -1,6 +1,7 @@
 package com.grabrental.cs544.driver.appservice;
 
 import com.grabRental.cs544.converter.DriverConverter;
+import com.grabRental.cs544.converter.VehicleConverter;
 import com.grabRental.cs544.dto.DriverDTO;
 import com.grabRental.cs544.model.Driver;
 import com.grabrental.cs544.driver.domainservice.DriverDomainService;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,6 +54,14 @@ public class DriverAppService implements IDriverAppService {
     @Override
     public Long delete(long id) {
         return driverDomainService.delete(id);
+    }
+
+    @Override
+    public List<DriverDTO> getAvailableDrivers(Date startTime, Date endTime) {
+        return driverDomainService.getAvailableDrivers(startTime, endTime)
+                .stream()
+                .map(driver -> DriverConverter.toDTO(driver))
+                .collect(Collectors.toList());
     }
 
 }

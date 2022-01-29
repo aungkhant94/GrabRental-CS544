@@ -5,6 +5,7 @@ import com.grabRental.cs544.dto.ScheduleDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IDriverAppService {
@@ -18,4 +19,6 @@ public interface IDriverAppService {
     DriverDTO update(DriverDTO driverDTO, long id);
 
     Long delete(long id);
+
+    List<DriverDTO> getAvailableDrivers(Date startDate, Date endDate);
 }

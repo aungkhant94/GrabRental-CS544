@@ -11,7 +11,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SearchVehicleDTO {
+public class SearchDTO {
     private Date startDate;
     private Date endDate;
 }
