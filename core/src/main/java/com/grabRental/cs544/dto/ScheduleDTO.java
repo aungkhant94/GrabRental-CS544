@@ -19,6 +19,8 @@ public class ScheduleDTO {
 
 	private Date date;
 
+	private Date endDate;
+
 	private Integer durationInMinute;
 
 	private Integer noOfPassenger;
@@ -34,11 +36,10 @@ public class ScheduleDTO {
 		if(this.serviceVehicleList==null){
 			this.serviceVehicleList = new ArrayList<>();
 		}
-		ServiceVehicleDTO serviceVehicle = new ServiceVehicleDTO(this);
+		ServiceVehicleDTO serviceVehicle = new ServiceVehicleDTO( null);
 		serviceVehicle.setVehicle(vehicle);
 		serviceVehicle.setDriver(driver);
 		this.serviceVehicleList.add(serviceVehicle);
-
 	}
 
 }

@@ -2,6 +2,7 @@ package com.grabrental.cs544.schedule.appservice;
 
 import com.grabRental.cs544.converter.ScheduleConverter;
 import com.grabRental.cs544.dto.VehicleDTO;
+import com.grabrental.cs544.schedule.exception.ScheduleApiException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.grabRental.cs544.dto.ScheduleDTO;
@@ -24,8 +25,15 @@ public class SchdeuleAppService implements  IScheduleAppService{
 	@Override
 	public ScheduleDTO createScheduleDTO(ScheduleDTO schedule) {
 		Schedule scheduleToSave = ScheduleConverter.toDAO(schedule);
-		scheduleToSave =  scheduleDomainService.createSchedule(scheduleToSave);
-		return ScheduleConverter.toDTO(scheduleToSave);
+		Schedule newSchedule;
+		if(schedule.getServiceVehicleList()==null ||
+			schedule.getServiceVehicleList().size()<=0
+		){
+			throw new ScheduleApiException("ServiceVehicle List shouldn't be empty!!");
+		}else {
+			newSchedule = scheduleDomainService.createSchedule(scheduleToSave);
+		}
+		return ScheduleConverter.toDTO(newSchedule);
 	}
 
 	@Override

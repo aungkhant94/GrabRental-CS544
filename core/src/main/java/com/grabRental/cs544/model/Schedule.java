@@ -24,6 +24,8 @@ public class Schedule {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
 
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date endDate;
 
 	private Integer durationInMinute;
 

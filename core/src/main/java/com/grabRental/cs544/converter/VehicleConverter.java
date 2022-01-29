@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 public class VehicleConverter {
     public static Vehicle toDAO(VehicleDTO vehicleDTO) {
         Vehicle vehicle = new Vehicle();
+        vehicle.setId(vehicleDTO.getId());
         vehicle.setBrand(vehicleDTO.getBrand());
         vehicle.setType(vehicleDTO.getType());
         vehicle.setModel(vehicleDTO.getModel());
@@ -22,6 +23,7 @@ public class VehicleConverter {
 
     public static VehicleDTO toDTO(Vehicle vehicle) {
         VehicleDTO vehicleDTO = new VehicleDTO();
+        vehicleDTO.setId(vehicle.getId());
         vehicleDTO.setBrand(vehicle.getBrand());
         vehicleDTO.setModel(vehicle.getModel());
         vehicleDTO.setType(vehicle.getType());
