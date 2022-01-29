@@ -1,6 +1,6 @@
 package com.grabrental.cs544.vehicle.controller;
 
-import com.grabRental.cs544.dto.SearchVehicleDTO;
+import com.grabRental.cs544.dto.SearchDTO;
 import com.grabRental.cs544.dto.VehicleDTO;
 import com.grabrental.cs544.vehicle.appservice.IVehicleAppService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,9 +80,14 @@ public class VehicleController {
      * @return
      */
     @GetMapping("/availableVehicles")
+<<<<<<< Updated upstream
     public List<VehicleDTO> getAvailableVehicles(@RequestBody SearchVehicleDTO searchVehicleDTO){
 
         return vehicleAppService.getAvailableVehicles(searchVehicleDTO.getStartDate(), searchVehicleDTO.getEndDate());
+=======
+    public List<VehicleDTO> getAvailableVehicles(@RequestBody SearchDTO searchDTO){
+        return vehicleAppService.getAvailableVehicles(searchDTO.getStartDate(), searchDTO.getEndDate());
+>>>>>>> Stashed changes
     }
 
 }

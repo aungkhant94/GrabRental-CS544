@@ -14,9 +14,9 @@ import java.util.List;
 @Repository
 public interface ScheduleRepository extends JpaRepository<Schedule, Long>{
 
-    @Query("SELECT COUNT(svh.id) FROM ServiceVehicle svh JOIN svh.schedule sch JOIN svh.vehicle v WHERE v.id = ?1 " +
-            "AND ( sch.date BETWEEN ?2 AND ?3" +
-            "OR sch.endDate BETWEEN ?2 AND ?3)")
+    @Query(" SELECT COUNT(svh.id) FROM ServiceVehicle svh JOIN svh.schedule sch JOIN svh.vehicle v WHERE v.id = ?1 " +
+            " AND ( sch.date BETWEEN ?2 AND ?3" +
+            " OR sch.endDate BETWEEN ?2 AND ?3 )")
     public int getVehicleAppointmentCount(long vehicleId, @Temporal Date startTime,@Temporal Date endTime);
 
     @Query("SELECT DISTINCT sch FROM ServiceVehicle svh JOIN svh.schedule sch JOIN svh.driver d " +
