@@ -29,4 +29,9 @@ public class ScheduleController {
 		ScheduleDTO scheduleDTOToSave = scheduleAppService.createScheduleDTO(scheduleDTO);
 		return scheduleDTOToSave;
 	}
+
+	@GetMapping("driver/{id}")
+	public List<ScheduleDTO> createVehicle(@PathVariable Long id){
+		return scheduleAppService.getCalendarForDriver(id);
+	}
 }
