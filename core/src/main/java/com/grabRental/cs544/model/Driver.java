@@ -21,23 +21,11 @@ public class Driver {
     @Id
     @GeneratedValue
     private Long id;
-
-    @NotBlank
     private String firstName;
-
-    @NotBlank
     private String lastname;
-
-    @NotNull
     private Integer age;
-
-    @NotBlank
     private String address;
-
-    @NotBlank
     private String licenseId;
-
-    @NotNull
     private Integer experience;
 
     public Driver(String firstName, String lastname, Integer age, String address, String licenseId, Integer experience) {
