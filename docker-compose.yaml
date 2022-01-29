@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+#  db:
+#    image: mysql:5.7
+#    container_name: db
+#    ports:
+#      - "3306:3306"
+#    restart: always
+#    environment:
+#      MYSQL_ROOT_PASSWORD: root
+#      MYSQL_DATABASE: cs544
+#    volumes:
+#      - mysql_db_data_container:/var/lib/mysql
+#    networks:
+#      - carrental-network
+
+  car-eureka:
+    image: rabinsen/crv2-car-eureka:0.0.1-SNAPSHOT
+    ports:
+      - "8761:8761"
+    networks:
+      - carrental-network
+
+  vehicle:
+    image: rabinsen/crv2-vehicle:0.0.1-SNAPSHOT
+    ports:
+      - "8081:8081"
+    networks:
+      - carrental-network
+    depends_on:
+      - car-eureka
+    environment:
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://car-server:8761/eureka
+
+networks:
+  carrental-network:
+
+#volumes:
+#  mysql_db_data_container:
+

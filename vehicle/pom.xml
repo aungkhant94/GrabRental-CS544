@@ -9,12 +9,12 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.grabrental.cs544</groupId>
-	<artifactId>Vehicle</artifactId>
+	<artifactId>vehicle</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>vehicle</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -81,7 +81,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<image>
-						<name>rabinsen/mmv2-${project.artifactId}:${project.version}</name>
+						<name>rabinsen/crv2-${project.artifactId}:${project.version}</name>
 					</image>
 					<pullPolicy>IF_NOT_PRESENT</pullPolicy>
 				</configuration>
