@@ -74,8 +74,14 @@ public class VehicleController {
     }
 
 
+    /**
+     * Retrieve all the vehicles available between a time frame
+     * @param searchVehicleDTO
+     * @return
+     */
     @GetMapping("/availableVehicles")
     public List<VehicleDTO> getAvailableVehicles(@RequestBody SearchVehicleDTO searchVehicleDTO){
+
         return vehicleAppService.getAvailableVehicles(searchVehicleDTO.getStartDate(), searchVehicleDTO.getEndDate());
     }
 

@@ -77,6 +77,12 @@ public class VehicleAppService implements IVehicleAppService{
         vehicleDomainService.deleteVehicle(id);
     }
 
+    /**
+     * convert and retrieve the available vehicles between a timeframe.
+     * @param startTime
+     * @param endTime
+     * @return
+     */
     @Override
     public List<VehicleDTO> getAvailableVehicles(Date startTime, Date endTime) {
         return vehicleDomainService.getAvailableVehicles(startTime, endTime)
