@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import com.grabrental.cs544.schedule.appservice.IScheduleAppService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,7 +26,7 @@ public class ScheduleController {
 	}
 
 	@PostMapping(consumes="application/json")
-	public ScheduleDTO createVehicle(@RequestBody ScheduleDTO scheduleDTO){
+	public ScheduleDTO createVehicle(@Valid @RequestBody ScheduleDTO scheduleDTO){
 		ScheduleDTO scheduleDTOToSave = scheduleAppService.createScheduleDTO(scheduleDTO);
 		return scheduleDTOToSave;
 	}

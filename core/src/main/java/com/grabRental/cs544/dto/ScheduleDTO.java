@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
 
 @Data
@@ -17,18 +18,24 @@ public class ScheduleDTO {
 
 	private Long id;
 
+	@NotNull
 	private Date date;
 
 	private Date endDate;
 
+	@NotNull
 	private Integer durationInMinute;
 
+	@NotNull
 	private Integer noOfPassenger;
 
+	@NotNull
 	private Location source;
 
+	@NotNull
 	private Location destination;
 
+	@NotNull
 	private List<ServiceVehicleDTO> serviceVehicleList;
 
 
