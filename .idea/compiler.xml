@@ -18,8 +18,8 @@
       <module name="core" target="15" />
       <module name="driver" target="17" />
       <module name="eureka" target="11" />
-      <module name="schedule" target="15" />
-      <module name="vehicle" target="16" />
+      <module name="schedule" target="17" />
+      <module name="vehicle" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
