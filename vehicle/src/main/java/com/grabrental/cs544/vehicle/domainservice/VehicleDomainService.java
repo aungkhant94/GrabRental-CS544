@@ -59,8 +59,17 @@ public class VehicleDomainService {
         }
     }
 
+    /**
+     * Retrieve all the available vehicles between a time frame
+     * @param startTime
+     * @param endTime
+     * @return
+     */
     public List<Vehicle> getAvailableVehicles(Date startTime, Date endTime){
+       // List<Vehicle> allVehicles = vehicleRepository.findAll();
         List<Vehicle> availableVehicles = vehicleRepository.getAvailableVehicles(startTime, endTime);
+       // List<Vehicle> availableVehicles = new ArrayList<>();
+
         if(availableVehicles.size() <= 0){
             throw new VechicleApiException("No available vehicles at the moment");
         }else {

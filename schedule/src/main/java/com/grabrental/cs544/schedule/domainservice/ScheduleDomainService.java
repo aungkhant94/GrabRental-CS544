@@ -15,6 +15,7 @@ import com.grabrental.cs544.schedule.repository.ScheduleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -69,5 +70,9 @@ public class ScheduleDomainService {
 
     public List<Schedule> getSchedules() {
         return scheduleRepository.findAll();
+    }
+
+    public List<Schedule> getCalendarForDriver(Long driverId){
+       return scheduleRepository.getCalendarForDriver(driverId,new Date());
     }
 }

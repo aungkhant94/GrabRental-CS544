@@ -9,4 +9,5 @@ public interface IScheduleAppService {
 	
 	 ScheduleDTO createScheduleDTO(ScheduleDTO schedule);
 	 List<ScheduleDTO> getSchedules();
+	 List<ScheduleDTO> getCalendarForDriver(Long driverId);
 }

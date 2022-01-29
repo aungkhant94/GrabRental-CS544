@@ -46,4 +46,14 @@ public class SchdeuleAppService implements  IScheduleAppService{
 
 	}
 
+	@Override
+	public List<ScheduleDTO> getCalendarForDriver(Long driverId) {
+		List<Schedule> scheduleList = scheduleDomainService.getCalendarForDriver(driverId);
+		List<ScheduleDTO> scheduleDTOList =  scheduleList.stream()
+				.map(vehicle -> ScheduleConverter.toDTO(vehicle))
+				.collect(Collectors.toList());
+		return scheduleDTOList;
+
+	}
+
 }

@@ -19,6 +19,10 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Long>{
             "OR sch.endDate BETWEEN ?2 AND ?3)")
     public int getVehicleAppointmentCount(long vehicleId, @Temporal Date startTime,@Temporal Date endTime);
 
+    @Query("SELECT DISTINCT sch FROM ServiceVehicle svh JOIN svh.schedule sch JOIN svh.driver d " +
+            "WHERE  d.id = ?1 AND sch.date > ?2")
+    public List<Schedule> getCalendarForDriver(Long driverId,@Temporal  Date date);
+
 //    @Query("SELECT COUNT(svh.id) FROM ServiceVehicle svh JOIN svh.schedule sch JOIN svh.vehicle v WHERE v.id = ?1")
 //    public int getVehicleAppointmentCount(long vehicleId, @Temporal Date startTime,@Temporal Date endTime);
 }

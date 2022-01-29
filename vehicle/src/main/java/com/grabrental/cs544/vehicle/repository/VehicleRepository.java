@@ -12,7 +12,15 @@ import java.util.List;
 @Repository
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
-     @Query("SELECT v FROM ServiceVehicle s JOIN s.schedule sch JOIN s.vehicle v " +
-             "WHERE (sch.date = ?1 AND sch.endDate = ?2)")
+     /**
+      * Query to retrieve all the availabel vehicles between a time frame
+      * @param startTime
+      * @param endTime
+      * @return
+      */
+     @Query("SELECT ve FROM Vehicle ve WHERE ve.id NOT IN" +
+             "(SELECT v.id FROM ServiceVehicle svh JOIN svh.schedule sc JOIN svh.vehicle v " +
+             "WHERE(sc.date BETWEEN ?1 AND ?2)" +
+             "OR sc.endDate BETWEEN ?1 AND ?2)")
      List<Vehicle> getAvailableVehicles(@Temporal Date startTime, @Temporal Date endTime);
 }
